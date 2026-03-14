@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduPortal — College Student System</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" /> -->
+</head>
+<body>
 
+<div id="portal">
+
+  <!-- ════════════════ LOGIN SCREEN ════════════════ -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">Edu<span>Portal</span></div>
+      <div class="login-subtitle">// Integrated College Management System v2.0</div>
+
+      <!-- Role Selector Tabs -->
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="student" onclick="App.setRole('student')">Student</button>
+        <button class="role-tab"        data-role="parent"  onclick="App.setRole('parent')">Parent</button>
+        <button class="role-tab"        data-role="teacher" onclick="App.setRole('teacher')">Teacher</button>
+      </div>
+
+      <!-- Dynamic Login Fields (injected by JS) -->
+      <div id="login-fields"></div>
+
+      <button class="login-btn" onclick="App.login()">Access Portal →</button>
+      <div id="login-error" class="login-error"></div>
+
+      <!-- Demo Credentials Hint -->
+      <div class="demo-hint" id="demo-hint"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════ MAIN APP (shown after login) ════════════════ -->
+  <div id="app">
+
+    <!-- Top Navigation Bar -->
+    <div class="topbar">
+      <div class="topbar-logo">Edu<span>Portal</span></div>
+      <div class="topbar-user">
+        <span id="topbar-name">—</span>
+        <span id="topbar-role-badge" class="role-badge">—</span>
+        <button class="logout-btn" onclick="App.logout()">Logout</button>
+      </div>
+    </div>
+
+    <!-- App Body: Sidebar + Main Content -->
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="main-content" id="main-content"></main>
+    </div>
+
+  </div>
+
+</div><!-- /#portal -->
+
+<script src="app.js"></script>
+</body>
+</html>
